@@ -22,3 +22,11 @@
 <?php exit;?>05-23 22:48:46 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
 <?php exit;?>05-23 22:49:04 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
 <?php exit;?>05-24 08:12:06 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:32:45 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:38:18 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:38:49 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:41:56 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:55:14 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:57:55 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 06:59:34 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 07:07:28 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364

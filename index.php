@@ -13,13 +13,14 @@ $path = "/phpcms_v9_UTF8/install_package/uploadfile/";
 $sql_banner = "SELECT * FROM `v9_picture` WHERE `catid` = 8";
 $result_banner = mysqli_query($con, $sql_banner);
 
-//首页产品流动图片
+//产品分类标题
 $sql_pro_flow = "SELECT * FROM `v9_category` WHERE `parentId` = 12";
 $result_pro_flow = mysqli_query($con, $sql_pro_flow);
 
 //新闻数据
 $sql_news = "SELECT * FROM `v9_news` WHERE `catid` = 9";
 $result_news = mysqli_query($con, $sql_news);
+
 
 //关于我们
 $sql_about = "SELECT * FROM `v9_page` WHERE `catid` = 2";
@@ -81,9 +82,21 @@ $result_about = mysqli_query($con, $sql_about);
                         <li><a href="/index.html">首页</a></li>
                         <li><a href="/about.html">关于我们</a>
                             <ul class="showvox">
-                                <li><a href="/about.html">公司简介</a></li>
-                                <li><a href="/culture.html">企业文化</a></li>
-                                <li><a href="/honor.html">资质荣誉</a></li>
+
+
+                                <?php
+                                //产品分类标题
+                                $sql_list_aboutus = "SELECT * FROM `v9_category` WHERE `parentId` = 1";
+                                $result_list_aboutus = mysqli_query($con, $sql_list_aboutus);
+
+                                while ($row2 = mysqli_fetch_array($result_list_aboutus)) {
+
+                                        echo "<li><a href=\"/about.html\">".$row2['catname']."</a></li>";
+
+                                }
+                                ?>
+
+
                             </ul>
 
                         </li>
@@ -96,232 +109,186 @@ $result_about = mysqli_query($con, $sql_about);
 
                         </li>
                         <li><a href="/product.html">产品信息</a>
-                            <div class="wrapshow">
+                            <div class="wrapshow"  >
                                 <div class="showtime">
                                     <ul class="showlist">
                                         <li>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_51.html">千分尺</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_67.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>标准外径千分尺</a></li>
-                                                        <li><a href="/product_cid_68.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>专用千分尺</a></li>
-                                                        <li><a href="/product_cid_69.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>选件</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_52.html">微分头</a>
-                                                    <ul class="neishow">
+                                            <?php
+                                                $sql_parent1 = "SELECT * FROM `v9_category` WHERE `catid` = 13 OR `catid` = 14 OR `catid` = 15 OR `catid` = 18 OR `catid` = 19  OR `catid` = 22";
+                                                $result_parent1 = mysqli_query($con, $sql_parent1);
+                                                while ($row2 = mysqli_fetch_array($result_parent1)) {
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_53.html">卡尺</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_71.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>专用卡尺</a></li>
-                                                        <li><a href="/product_cid_97.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>大型卡尺</a></li>
-                                                        <li><a href="/product_cid_98.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>标准卡尺</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_54.html">高度尺</a>
-                                                    <ul class="neishow">
+                                                                    $sql_pro_child = "SELECT * FROM `v9_category` WHERE `parentId` =".$row2['catid'];
+                                                                    $result_pro_child = mysqli_query($con, $sql_pro_child);
+                                                                        $html = "";
+                                                                     while ($row3 = mysqli_fetch_array($result_pro_child)) {
+                                                                         $html .= "<li>
+                                                                                        <a href=\"/product_cid_67.html\">
+                                                                                                <span class=\"pra\">
+                                                                                                    <img src=\"images/tb18.png\"/>
+                                                                                                </span>".$row3['catname']."</a>
+                                                                            </li>";
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_55.html">深度尺</a>
-                                                    <ul class="neishow">
+                                                                     }
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_56.html">内径千分尺</a>
-                                                    <ul class="neishow">
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_57.html">量块</a>
-                                                    <ul class="neishow">
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                                                    echo "<ul class=\"showll\">
+                                                                            <li><span></span><a href=products.php?id=" . $row2['catid'] . ">" . $row2['catname'] . "</a>
+                                                                            <ul class=\"neishow\">
+                                                                            ".$html."
+                                                                                
+                
+                                                                               
+                                                                            </ul>
+                                                                            </li>
+                                                                        </ul>";
+
+
+
+                                                }
+
+
+                                            ?>
+
+
+
 
 
                                         </li>
+
+
                                         <li>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_58.html">校准仪器</a>
-                                                    <ul class="neishow">
+                                            <?php
+                                            $sql_parent2 = "SELECT * FROM `v9_category` WHERE `catid` = 23 OR `catid` = 24 OR `catid` = 25 OR `catid` = 26 OR `catid` = 27  OR `catid` = 28 OR `catid` = 29";
+                                            $result_parent2 = mysqli_query($con, $sql_parent2);
+                                            while ($row2 = mysqli_fetch_array($result_parent2)) {
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_59.html">基准器</a>
-                                                    <ul class="neishow">
+                                                $sql_pro_child = "SELECT * FROM `v9_category` WHERE `parentId` =".$row2['catid'];
+                                                $result_pro_child = mysqli_query($con, $sql_pro_child);
+                                                $html = "";
+                                                while ($row3 = mysqli_fetch_array($result_pro_child)) {
+                                                    $html .= "<li>
+                                                                                        <a href=\"/product_cid_67.html\">
+                                                                                                <span class=\"pra\">
+                                                                                                    <img src=\"images/tb18.png\"/>
+                                                                                                </span>".$row3['catname']."</a>
+                                                                            </li>";
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_60.html">百/千分表</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_78.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>数显百/千分表</a></li>
-                                                        <li><a href="/product_cid_99.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>百/千分表应用附件/支架</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_61.html">杠杆表</a>
-                                                    <ul class="neishow">
+                                                }
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_62.html">精密传感器</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_80.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>非接触式传感器</a></li>
-                                                        <li><a href="/product_cid_100.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>接触式传感器</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_63.html">光栅尺</a>
-                                                    <ul class="neishow">
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_64.html">三坐标测量仪器</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_82.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>手动三坐标测量机</a></li>
-                                                        <li><a href="/product_cid_101.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>CNC三坐标测量机</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+
+                                                echo "<ul class=\"showll\">
+                                                                            <li><span></span><a href=products.php?id=" . $row2['catid'] . ">" . $row2['catname'] . "</a>
+                                                                            <ul class=\"neishow\">
+                                                                            ".$html."
+                                                                                
+                
+                                                                               
+                                                                            </ul>
+                                                                            </li>
+                                                                        </ul>";
+
+
+
+                                            }
+
+
+                                            ?>
+
+
+
 
 
                                         </li>
+
                                         <li>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_65.html">表面粗糙度测量机</a>
-                                                    <ul class="neishow">
+                                            <?php
+                                            $sql_parent3 = "SELECT * FROM `v9_category` WHERE `catid` = 30 OR `catid` = 31 OR `catid` = 32 OR `catid` = 33 OR `catid` = 34  OR `catid` = 35 OR `catid` = 29 OR `catid` = 38 OR `catid` = 39 OR `catid` = 40";
+                                            $result_parent3 = mysqli_query($con, $sql_parent3);
+                                            while ($row2 = mysqli_fetch_array($result_parent3)) {
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_66.html">轮廓形状测量机</a>
-                                                    <ul class="neishow">
+                                                $sql_pro_child = "SELECT * FROM `v9_category` WHERE `parentId` =".$row2['catid'];
+                                                $result_pro_child = mysqli_query($con, $sql_pro_child);
+                                                $html = "";
+                                                while ($row3 = mysqli_fetch_array($result_pro_child)) {
+                                                    $html .= "<li>
+                                                                                        <a href=\"/product_cid_67.html\">
+                                                                                                <span class=\"pra\">
+                                                                                                    <img src=\"images/tb18.png\"/>
+                                                                                                </span>".$row3['catname']."</a>
+                                                                            </li>";
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_87.html">圆度测量机</a>
-                                                    <ul class="neishow">
+                                                }
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_88.html">硬度试验机、材料试验机</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_102.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>其他硬度试验机</a></li>
-                                                        <li><a href="/product_cid_103.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>洛氏</a></li>
-                                                        <li><a href="/product_cid_104.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>维氏</a></li>
-                                                        <li><a href="/product_cid_105.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>显微维氏</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_89.html">视像测量机</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_106.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>手动视像测量机</a></li>
-                                                        <li><a href="/product_cid_107.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>CNC视像测量机</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_90.html">显微镜</a>
-                                                    <ul class="neishow">
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
+
+                                                echo "<ul class=\"showll\">
+                                                                            <li><span></span><a href=products.php?id=" . $row2['catid'] . ">" . $row2['catname'] . "</a>
+                                                                            <ul class=\"neishow\">
+                                                                            ".$html."
+                                                                                
+                
+                                                                               
+                                                                            </ul>
+                                                                            </li>
+                                                                        </ul>";
+
+
+
+                                            }
+
+
+                                            ?>
+
+
+
 
 
                                         </li>
-                                        <li style="margin-right:0;">
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_91.html">投影仪</a>
-                                                    <ul class="neishow">
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_92.html">物镜</a>
-                                                    <ul class="neishow">
+                                        <li>
+                                            <?php
+                                            $sql_parent3 = "SELECT * FROM `v9_category` WHERE `catid` = 30 OR `catid` = 31 OR `catid` = 32 OR `catid` = 33 OR `catid` = 34  OR `catid` = 35 OR `catid` = 29";
+                                            $result_parent3 = mysqli_query($con, $sql_parent3);
+                                            while ($row2 = mysqli_fetch_array($result_parent3)) {
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_93.html">测量系统数据管理</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_108.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>统计演算印刷等</a></li>
-                                                        <li><a href="/product_cid_109.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>测量数据输入</a></li>
-                                                        <li><a href="/product_cid_110.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>品质管理软件</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <ul class="showll">
-                                                <li><span></span><a href="/product_cid_111.html">尼康3D测量系统</a>
-                                                    <ul class="neishow">
-                                                        <li><a href="/product_cid_112.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>工业CT</a></li>
-                                                        <li><a href="/product_cid_113.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>三坐标测量机</a></li>
-                                                        <li><a href="/product_cid_114.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>激光/数码扫描测头</a></li>
-                                                        <li><a href="/product_cid_115.html"><span class="pra"><img
-                                                                        src="images/tb18.png"/></span>关节臂</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                                $sql_pro_child = "SELECT * FROM `v9_category` WHERE `parentId` =".$row2['catid'];
+                                                $result_pro_child = mysqli_query($con, $sql_pro_child);
+                                                $html = "";
+                                                while ($row3 = mysqli_fetch_array($result_pro_child)) {
+                                                    $html .= "<li>
+                                                                                        <a href=\"/product_cid_67.html\">
+                                                                                                <span class=\"pra\">
+                                                                                                    <img src=\"images/tb18.png\"/>
+                                                                                                </span>".$row3['catname']."</a>
+                                                                            </li>";
+
+                                                }
+
+
+
+                                                echo "<ul class=\"showll\">
+                                                                            <li><span></span><a href=products.php?id=" . $row2['catid'] . ">" . $row2['catname'] . "</a>
+                                                                            <ul class=\"neishow\">
+                                                                            ".$html."
+                                                                                
+                
+                                                                               
+                                                                            </ul>
+                                                                            </li>
+                                                                        </ul>";
+
+
+
+                                            }
+
+
+                                            ?>
+
+
+
 
 
                                         </li>
@@ -410,22 +377,23 @@ $result_about = mysqli_query($con, $sql_about);
 
                             <?php
                             while ($row2 = mysqli_fetch_array($result_pro_flow)) {
-
-
-                                echo "<li>
+                                if ($row2['image']) {
+                                    echo "<li>
                                 <dl>
-                                    <a href=products.php?id=".$row2['catid'].">
-                                        <dt><img src=".$row2['image']." /></dt>
-                                        <dd>".$row2['catname']."</dd>
+                                    <a href=products.php?id=" . $row2['catid'] . ">
+                                        <dt><img src=" . $row2['image'] . " /></dt>
+                                        <dd>" . $row2['catname'] . "</dd>
                                     </a>
                                 </dl>
                             </li>";
+                                }
+
+
                             }
                             // 释放结果集
                             mysqli_free_result($result_pro_flow);
 
                             ?>
-
 
 
                         </ul>
@@ -442,12 +410,34 @@ $result_about = mysqli_query($con, $sql_about);
                         <div class="bttitle">
                             <div class="btleft">产品中心 / <span>Products</span></div>
 
+                            <?php
+                            //产品分类标题
+                            $sql_pro_center1 = "SELECT * FROM `v9_news` WHERE `id` = 6";
+                            $result_pro_center1 = mysqli_query($con, $sql_pro_center1);
+                            $row_pro_center1 = mysqli_fetch_array($result_pro_center1);
+
+//                            while ($row2 = mysqli_fetch_array($result_pro_flow)) {
+//                                if ($row2['image']) {
+//                                    echo "<li>
+//                                <dl>
+//                                    <a href=products.php?id=" . $row2['catid'] . ">
+//                                        <dt><img src=" . $row2['image'] . " /></dt>
+//                                        <dd>" . $row2['catname'] . "</dd>
+//                                    </a>
+//                                </dl>
+//                            </li>";
+//                                }
+
+
+
+                            ?>
+
                         </div>
 
                         <div class="lfmtwo">
                             <div class="lfmme">
                                 <div class="lfmmtu" style="margin-left:60px;">
-                                    <img src="/files/images/201506/111059182230.jpg"
+                                    <img src="<?php echo $row_pro_center1['thumb']; ?>"
                                          style="width: 235px; height: 168px; margin-top:25px;"/></div>
                                 <div class="lgmmzi" style="margin-right:0px;">
                                     <p class="styaa">
@@ -455,8 +445,8 @@ $result_about = mysqli_query($con, $sql_about);
                                         <br/>
                                         <br/>
                                         <br/>
-                                        <span style="font-size:14px;display:block;">CV-3200S4</span> <span
-                                            style="font-size:12px;font-weight:normal;position:relative;margin-top:-7px;display:block;">轮廓形状测量机</span>
+                                        <span style="font-size:14px;display:block;"><?php echo $row_pro_center1['keywords']; ?></span> <span
+                                            style="font-size:12px;font-weight:normal;position:relative;margin-top:-7px;display:block;"><?php echo $row_pro_center1['title']; ?></span>
                                     </p>
                                     <p class="stykd" style="margin-top:8px;">
                                         <img height="17" src="images/tb6.png" width="17"/><a
@@ -522,26 +512,26 @@ $result_about = mysqli_query($con, $sql_about);
                         <ul class="listnews">
 
                             <?php
-                                while ($row = mysqli_fetch_array($result_news)) {
-                                    $url = $row['thumb'];
+                            while ($row = mysqli_fetch_array($result_news)) {
+                                $url = $row['thumb'];
 
-                                    echo "<li>
+                                echo "<li>
                                         <div class=\"aalsd\">
-                                        <a href=news.php?id=". $row['id'] .">
+                                        <a href=news.php?id=" . $row['id'] . ">
                                         <img src='" . $row['thumb'] . "' width=\"69\" height=\"49\" />
                                         </a>
                                         </div>
                                         <div class=\"kibbs\">
                                         <span>
-                                        <a href=news.php?id=". $row['id'] .">"
-                                        . $row['title'] .
-                                        "</a>
+                                        <a href=news.php?id=" . $row['id'] . ">"
+                                    . $row['title'] .
+                                    "</a>
                                         </span>
                                         <br />"
-                                        . $row['inputtime'] .
-                                        "</div>
+                                    . $row['inputtime'] .
+                                    "</div>
                                         </li>";
-                                }
+                            }
                             // 释放结果集
                             mysqli_free_result($result_news);
 
@@ -560,18 +550,16 @@ $result_about = mysqli_query($con, $sql_about);
                                 <div class="huys">
 
                                     <?php
-                                    $row = mysqli_fetch_array( $result_about);
+                                    $row = mysqli_fetch_array($result_about);
                                     $str = $row['content'];
                                     //$str = "hellow world";
-                                   echo $str;
+                                    echo $str;
 
                                     //$str='脚本之家：http://www.jb51.net';
                                     //echo mb_substr($str,0,40,'utf-8');//截取头5个字，假定此代码所在php文件的编码为utf-8
 
                                     // 释放结果集
                                     mysqli_free_result($result_about);
-
-
 
 
                                     ?>
