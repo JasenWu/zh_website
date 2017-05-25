@@ -30,3 +30,4 @@
 <?php exit;?>05-25 06:57:55 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
 <?php exit;?>05-25 06:59:34 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
 <?php exit;?>05-25 07:07:28 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-25 22:54:44 | 2 | Missing argument 2 for category::delete_child(), called in /Users/jason/www/zy/admin/phpcms/modules/admin/category.php on line 351 and defined | phpcms/modules/admin/category.php | 346
