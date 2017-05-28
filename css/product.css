@@ -494,6 +494,9 @@
 	font-size:12px;
 	color:#666666;
 	}
+.pageli a:last-child{
+	border:1px solid #d8d4cd;
+}
 .pageli .bihs{
 	border-right:1px solid #d8d4cd;
 	}
