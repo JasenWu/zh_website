@@ -44,14 +44,23 @@
     <!-----top----->
 <div class="header">
     <div class="box">
+
         <div class="logo"><a href="/index.html" style="float:left;"><img src="images/logo.png" width="573"
                                                                          height="42"/></a>
             <a href="http://www.mitutoyo.com.cn/products/index.html#page=1" target="_blank"
                style="float:right;"><img src="images/LOGO.jpg"/></a></div>
         <div class="nav">
             <ul class="navlist">
-                <li><a href="/index.html">首页</a></li>
-                <li><a href="/about.html">关于我们</a>
+                <?php
+                    function getPath(){
+                        $url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"];
+                        return  dirname($url);
+                    }
+
+                ?>
+
+                <li><a href="<?php echo getPath()."/index.php"; ?>">首页</a></li>
+                <li><a href="<?php echo getPath()."/about.php"; ?>">关于我们</a>
                     <ul class="showvox">
 
 
@@ -71,7 +80,7 @@
                     </ul>
 
                 </li>
-                <li><a href="/news.html">新闻动态</a>
+                <li><a href="<?php echo getPath()."/news.php"; ?>">新闻动态</a>
                     <ul class="showvox">
                         <li><a href="/news_cid_140.html">公司新闻</a></li>
                         <li><a href="/news_cid_141.html">行业新闻</a></li>
@@ -79,7 +88,7 @@
                     </ul>
 
                 </li>
-                <li><a href="/product.html">产品信息</a>
+                <li><a href="<?php echo getPath()."/products.php"; ?>">产品信息</a>
                     <div class="wrapshow"  >
                         <div class="showtime">
                             <ul class="showlist">
@@ -185,7 +194,7 @@
                                         $html = "";
                                         while ($row3 = mysqli_fetch_array($result_pro_child)) {
                                             $html .= "<li>
-                                                                                        <a href=\"/product_cid_67.html\">
+                                                                                        <a href='products.php?catid=".$row3['catid']."'>
                                                                                                 <span class=\"pra\">
                                                                                                     <img src=\"images/tb18.png\"/>
                                                                                                 </span>".$row3['catname']."</a>
@@ -230,7 +239,7 @@
                                         $html = "";
                                         while ($row3 = mysqli_fetch_array($result_pro_child)) {
                                             $html .= "<li>
-                                                                                        <a href=\"/product_cid_67.html\">
+                                                                                        <a href=\"products.php\">
                                                                                                 <span class=\"pra\">
                                                                                                     <img src=\"images/tb18.png\"/>
                                                                                                 </span>".$row3['catname']."</a>

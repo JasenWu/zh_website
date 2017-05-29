@@ -88,7 +88,7 @@ input {
 	min-height:400px;
 	position:absolute;
 	z-index:11;
-	top:42px;
+	top:33px;
 	left:-350px;
     display:none;
 	}
@@ -99,6 +99,7 @@ input {
 	display:block;
 	margin-left:18px;
 	padding-top:15px;
+	padding-bottom: 10px;
 	}
 .showlist > li{
 	width:264px;
@@ -136,7 +137,7 @@ input {
 	left:0;
 	overflow:hidden;
 	z-index:11;
-	top:42px;
+	top:33px;
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
 	padding-bottom:10px;
@@ -150,7 +151,7 @@ input {
 	left:0;
 	overflow:hidden;
 	z-index:11;
-	top:42px;
+	top:33px;
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
 	padding-bottom:10px;
