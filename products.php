@@ -1,6 +1,9 @@
 <?php
 include 'common/connectDB.php';
 include 'common/header.php';
+include 'common/Site.php';
+$SiteConfig = new Site;//实例化配置
+
 ?>
 
 
@@ -91,7 +94,7 @@ include 'common/header.php';
                         $cur_page= 1;//存在
                     }
 
-                    $numbersPerPage = 2;//每页产品数
+                    $numbersPerPage = $SiteConfig->perpageNum;//每页产品数
 
 
                     $startIndex = ($cur_page  -1) * $numbersPerPage;//页总数
@@ -207,7 +210,7 @@ include 'common/header.php';
                             }
 
                             if($totalPageNum>0){
-                                echo "<a href='products.php?catid=42&page=".$pre_page."'>《</a>";
+                                echo "<a href='products.php?catid=".$catid."&page=".$pre_page."'>《</a>";
                                 for ($i=1; $i<=$totalPageNum; $i++)
                                 {
                                     if($i == $cur_page){
@@ -215,9 +218,9 @@ include 'common/header.php';
                                     }else{
                                         $class = "";
                                     }
-                                    echo "<a class='".$class."' href='products.php?catid=42&page=".$i."' >".$i."</a>";
+                                    echo "<a class='".$class."' href='products.php?catid=".$catid."&page=".$i."' >".$i."</a>";
                                 }
-                                echo "<a href='products.php?catid=42&page=".$next_page."'>》</a>";
+                                echo "<a href='products.php?catid=".$catid."&page=".$next_page."'>》</a>";
                             }else{
                                 echo "无数据!";
                             }

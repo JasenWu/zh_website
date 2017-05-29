@@ -120,3 +120,5 @@
 <?php exit;?>05-29 16:34:59 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
 <?php exit;?>05-29 16:34:59 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
 <?php exit;?>05-29 16:36:17 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>05-29 21:22:40 | 2 | chmod(): Operation not permitted | phpcms/libs/classes/attachment.class.php | 77
+<?php exit;?>05-29 21:22:43 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364

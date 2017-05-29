@@ -11,6 +11,7 @@
 	position:relative;
 	margin-top:320px;
 	background:#eff1f4;
+	overflow: hidden;
 	}
 .canshoue{
 	width:100%;
@@ -1075,7 +1076,7 @@
 	}
 .neishow li a .pra{
 	display:block;
-	margin-top:15px;
+
 	margin-right:8px;
 	margin-left:18px;
 	float:left;

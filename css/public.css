@@ -82,6 +82,7 @@ input {
 	margin:0 auto;
 	float:left;
 	background:url(../images/bg8.png) repeat;
+	padding-bottom: 10px;
 	}
 .wrapshow{
 	width:100%;

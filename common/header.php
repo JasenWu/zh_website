@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,31 +64,41 @@
                 ?>
 
                 <li><a href="<?php echo getPath()."/index.php"; ?>">首页</a></li>
-                <li><a href="<?php echo getPath()."/about.php"; ?>">关于我们</a>
+                <li><a href="<?php echo getPath()."/about.php?catid=2"; ?>">关于我们</a>
                     <ul class="showvox">
 
 
                         <?php
-                        //产品分类标题
-                        $sql_list_aboutus = "SELECT * FROM `v9_category` WHERE `parentId` = 1";
-                        $result_list_aboutus = mysqli_query($con, $sql_list_aboutus);
+                            //产品分类标题
+                            $sql_list_aboutus = "SELECT * FROM `v9_category` WHERE `parentId` = 1";
+                            $result_list_aboutus = mysqli_query($con, $sql_list_aboutus);
 
-                        while ($row2 = mysqli_fetch_array($result_list_aboutus)) {
+                            while ($row2 = mysqli_fetch_array($result_list_aboutus)) {
 
-                            echo "<li><a href='products?catid=".$row2['catid']."'>".$row2['catname']."</a></li>";
+                                echo "<li><a href='about.php?catid=".$row2['catid']."'>".$row2['catname']."</a></li>";
 
-                        }
+                            }
                         ?>
 
 
                     </ul>
 
                 </li>
-                <li><a href="<?php echo getPath()."/news.php"; ?>">新闻动态</a>
+                <li><a href="<?php echo getPath()."/news.php?catid=46"; ?>">新闻动态</a>
                     <ul class="showvox">
-                        <li><a href="/news_cid_140.html">公司新闻</a></li>
-                        <li><a href="/news_cid_141.html">行业新闻</a></li>
-                        <!--<li><a href="#">行业新闻</a></li>-->
+
+                        <?php
+                        //产品分类标题
+                        $sql_list_aboutus = "SELECT * FROM `v9_category` WHERE `parentId` = 9";
+                        $result_list_aboutus = mysqli_query($con, $sql_list_aboutus);
+
+                        while ($row2 = mysqli_fetch_array($result_list_aboutus)) {
+
+                            echo "<li><a href='news.php?catid=".$row2['catid']."'>".$row2['catname']."</a></li>";
+
+                        }
+                        ?>
+
                     </ul>
 
                 </li>
@@ -281,13 +295,7 @@
                     </div>
                 </li>
                 <li><a href="/sense.html">仪器常识</a></li>
-                <li><a href="/service.html">服务维修</a>
-                    <ul class="showvox">
-                        <li><a href="/service.html">服务指南</a></li>
-                        <li><a href="/service1.html">关于支持咨询</a></li>
-                    </ul>
 
-                </li>
                 <li><a href="/recruiting.html">招贤纳士</a>
                     <ul class="showvox">
                         <li><a href="/recruiting.html">人才理念</a></li>
