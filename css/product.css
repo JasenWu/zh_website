@@ -503,7 +503,7 @@
 .pageli .wyue{
 	border-bottom:none;
 	border-top:none;}
-.pageli a:hover{
+.pageli a:hover,.pageli a.cur{
 	border:1px solid #ffa38d;
 	background-color:#fff0ec;
 	color:#ff9c00;}

@@ -81,7 +81,7 @@ include 'common/header.php';
                     $str_childids = $row_category['arrchildid'];
 
                     $arrchildidsArr = explode(',',$str_childids);//数组
-                    var_dump($arrchildidsArr);
+
 
 
                     if(isset($_GET["page"]))//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
@@ -100,7 +100,7 @@ include 'common/header.php';
 
                     if (count($arrchildidsArr)>1)//说明有子元素在
                     {
-                        echo "说明有子元素在!";
+
                         $Limit = "";
                         for($x=0;$x<count($arrchildidsArr);$x++)
                         {
@@ -115,7 +115,7 @@ include 'common/header.php';
                     }
                     else
                     {//说明没有子元素
-                        echo "说明没有子元素!";
+
                         $rowcount= mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(*) AS C FROM `v9_news` WHERE `catid` =".$catid))['C'];//数据总数量
                         $sql_list = "SELECT * FROM `v9_news` WHERE `catid` = ".$catid."  LIMIT ".$startIndex.",".$numbersPerPage;
 
@@ -130,28 +130,6 @@ include 'common/header.php';
 
 
 
-
-
-
-
-
-
-                    //分页功能
-
-
-
-
-
-                    printf("总共返回行数据:".$rowcount."<br/>");
-
-                    printf("当前页:".$cur_page."<br/>");
-                    printf("每页产品数:".$numbersPerPage."<br/>");
-                    printf("页总数:".$totalPageNum."<br/>");
-                    printf("起始index:".$startIndex."<br/>");
-                    printf("sql_list:".$sql_list."<br/>");
-
-
-
                     //分页结束
 
 
@@ -163,9 +141,20 @@ include 'common/header.php';
 
 
                     while ($row = mysqli_fetch_array($result_list)) {
-                        $attachment = "SELECT * FROM `v9_attachment` WHERE `aid` =".$row['id'];
-                        $result_attachment = mysqli_query($con, $attachment);
+                        $sql_attachment = "SELECT * FROM `v9_download` RIGHT JOIN `v9_download_data` ON `v9_download`.id=`v9_download_data`.id WHERE `v9_download`.keywords =".$row['id'];
+                        $result_attachment = mysqli_query($con, $sql_attachment);
                         $result_attachment_row = mysqli_fetch_array($result_attachment);
+
+
+
+
+                        $downloadHtml = "";
+
+                        if(isset($result_attachment_row['downfile'])){
+                            $downloadHtml = "<a href='".getPath()."/admin/uploadfile".substr_replace($result_attachment_row['downfile'],"",strlen($result_attachment_row['downfile'])-1)."' target=\"_blank\">详细参数（PDF)</a>";
+                        }else{
+                            $downloadHtml = "<div>&nbsp;</div>";
+                        }
 
                         echo " <li>
                                 <dl>
@@ -175,7 +164,7 @@ include 'common/header.php';
                                                                                                width=\"169\" height=\"121\"/></a>
                                     </dd>
                                     <dd class=\"zi\">".$row['description']."</dd>
-                                    <dd class=\"zzi\"><a href='product_detail.php?id=".$result_attachment_row['filepath']."' target=\"_blank\">详细参数（PDF)</a></dd>
+                                    <dd class=\"zzi\">".$downloadHtml."</dd>
         
                                 </dl>
                             </li>";
@@ -204,13 +193,31 @@ include 'common/header.php';
                     <div class="pageli">
 
                         <?php
+
+                            if($cur_page>=2){
+                                $pre_page = $cur_page - 1;
+                            }else{
+                                $pre_page = 1;
+                            }
+
+                            if($cur_page<=$totalPageNum-1){
+                                $next_page = $cur_page + 1;
+                            }else{
+                                $next_page =  $totalPageNum;
+                            }
+
                             if($totalPageNum>0){
-                                echo "<a href=\"products.php?catid=42&page=\">《</a>";
+                                echo "<a href='products.php?catid=42&page=".$pre_page."'>《</a>";
                                 for ($i=1; $i<=$totalPageNum; $i++)
                                 {
-                                    echo "<a href='products.php?catid=42&page=".$i."' >".$i."</a>";
+                                    if($i == $cur_page){
+                                        $class = "cur";
+                                    }else{
+                                        $class = "";
+                                    }
+                                    echo "<a class='".$class."' href='products.php?catid=42&page=".$i."' >".$i."</a>";
                                 }
-                                echo "<a href=\"products.php?catid=42&page=\">》</a>";
+                                echo "<a href='products.php?catid=42&page=".$next_page."'>》</a>";
                             }else{
                                 echo "无数据!";
                             }

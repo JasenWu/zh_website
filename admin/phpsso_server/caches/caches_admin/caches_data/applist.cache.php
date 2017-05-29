@@ -5,7 +5,7 @@ return array (
     'appid' => '1',
     'type' => 'phpcms_v9',
     'name' => 'phpcms v9',
-    'url' => 'http://localhost/phpcms_v9_UTF8/install_package/',
+    'url' => 'http://localhost/zy/admin/',
     'authkey' => '7u1ngHog6Eh65pO2St1tP9T6RYG5P6Ft',
     'ip' => '',
     'apifilename' => 'api.php?op=phpsso',
