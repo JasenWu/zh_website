@@ -38,11 +38,38 @@ $SiteConfig = new Site;//实例化配置
 
         <!---左边的内容---->
         <div class="mainright">
-            <div class="aammk">公司新闻</div>
+            <?php
+            $catName = "公司新闻";
+            $catid = $_GET['catid'];
+            if($catid == 47){
+                $catName = "行业新闻";
+            }else{
+                $catName = "公司新闻";
+            }
+            ?>
+
+            <div class="aammk"><?php echo $catName; ?></div>
             <div class="hubout">
                 <ul class="new_list">
                     <?php
-                    $sql_content = "SELECT * FROM `v9_news` WHERE `catid` =".$_GET['catid'];
+
+
+
+
+                    if(isset($_GET["page"]))//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+                    {
+                        $cur_page = $_GET["page"];//存在
+                    }else{
+                        $cur_page= 1;//存在
+                    }
+                    $numbersPerPage = $SiteConfig->perpageNum;//每页产品数
+                    $startIndex = ($cur_page  -1) * $numbersPerPage;//页总数
+                    $rowcount= mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(*) AS C1 FROM `v9_news` WHERE `catid` =".$catid))['C1'];
+
+
+                    $totalPageNum = ceil($rowcount / $numbersPerPage);//页总数
+
+                    $sql_content = "SELECT * FROM `v9_news` WHERE `catid` =".$catid." LIMIT ".$startIndex.",".$numbersPerPage;
                     $result_content = mysqli_query($con, $sql_content);
 
 
@@ -50,8 +77,8 @@ $SiteConfig = new Site;//实例化配置
                         echo " <li>
                         <div class=\"newlwft\"><img src=\"".$row_content['thumb']."\" width=\"183\" height=\"124\" /></div>
                         <div class=\"newzis\">
-                            <p class=\"bitia\"><a href=\"/news2_cid_140_id_722.html\">".$row_content['title']."</a></p>
-                            <p class=\"date\">".$row_content['inputtime']."</p>
+                            <p class=\"bitia\"><a href=\"news_details.php?id=".$row_content['id']."\">".$row_content['title']."</a></p>
+                            <p class=\"date\">".date("Y-m-d ",$row_content['inputtime'])."</p>
                             <p class=\"neirog\">
                                 ".$row_content['description']."
                             </p>
@@ -69,21 +96,15 @@ $SiteConfig = new Site;//实例化配置
 
 
 
-
-
-
                 </ul>
                 <div class="page">
                     <div class="pageli">
 
 
-                        <a href="#" >《</a>
+                        <?php
+                            $SiteConfig->pagination($cur_page,$totalPageNum,$catid,"news.php");
 
-                        <a href="/news_page_1.html?cid=140">1</a>
-
-                        <a href="/news_page_2.html?cid=140">2</a>
-
-                        <a href="#" >》</a>
+                        ?>
 
                     </div>
 

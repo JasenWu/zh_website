@@ -197,33 +197,11 @@ $SiteConfig = new Site;//实例化配置
 
                         <?php
 
-                            if($cur_page>=2){
-                                $pre_page = $cur_page - 1;
-                            }else{
-                                $pre_page = 1;
-                            }
 
-                            if($cur_page<=$totalPageNum-1){
-                                $next_page = $cur_page + 1;
-                            }else{
-                                $next_page =  $totalPageNum;
-                            }
 
-                            if($totalPageNum>0){
-                                echo "<a href='products.php?catid=".$catid."&page=".$pre_page."'>《</a>";
-                                for ($i=1; $i<=$totalPageNum; $i++)
-                                {
-                                    if($i == $cur_page){
-                                        $class = "cur";
-                                    }else{
-                                        $class = "";
-                                    }
-                                    echo "<a class='".$class."' href='products.php?catid=".$catid."&page=".$i."' >".$i."</a>";
-                                }
-                                echo "<a href='products.php?catid=".$catid."&page=".$next_page."'>》</a>";
-                            }else{
-                                echo "无数据!";
-                            }
+                        $SiteConfig->pagination($cur_page,$totalPageNum,$catid,"products.php");
+
+
 
                         ?>
 

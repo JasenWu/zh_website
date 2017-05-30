@@ -47,7 +47,7 @@ $SiteConfig = new Site;//实例化配置
                 <div class="xinmmk"><?php  echo $row_content['title'] ?></div>
                 <div class="hubout">
                     <div class="newsbo">
-                        <div style="width:100%;text-align:center;font-size:12px; color:#999; line-height:35px;">发布日期：<?php  echo $row_content['inputtime'] ?> <br><br>
+                        <div style="width:100%;text-align:center;font-size:12px; color:#999; line-height:35px;">发布日期：<?php  echo date("Y-m-d H:i:s",$row_content['inputtime']); ?> <br><br>
                         <div style="font-size:12px; font-family:'微软雅黑'; color:#444; line-height:23px;">
                             <?php  echo $row_content['content'] ?>
                         </div>
