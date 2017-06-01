@@ -302,7 +302,7 @@
                         <li><a href="/recruiting1_cid_3.html">招聘职位 </a></li>
                     </ul>
                 </li>
-                <li style="margin-right:0;"><a href="/contact.html">联系我们</a>
+                <li style="margin-right:0;"><a href="/zy/contact_us.php">联系我们</a>
                     <ul class="showvox">
                         <li><a href="/contact.html">联系我们</a></li>
                         <li><a href="/consulting.html">产品咨询</a></li>

@@ -42,12 +42,14 @@ $SiteConfig = new Site;//实例化配置
             <?php
             $sql_content = "SELECT * FROM `v9_page` WHERE `catid` =".$_GET['catid'];
             $result_content = mysqli_query($con, $sql_content);
-            $row_content = mysqli_fetch_array($result_content)
+            $row_content = mysqli_fetch_array($result_content);
+            //var_dump($row_content);
 
 
             ?>
 
             <div class="aammk"><?php
+
                 echo $row_content['title'];
                 ?></div>
             <div class="hubout">

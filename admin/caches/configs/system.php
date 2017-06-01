@@ -1,7 +1,7 @@
 <?php
 return array(
 //网站路径
-'web_path' => '/zy/adimin/',
+'web_path' => '/zy/admin/',
 //Session配置
 'session_storage' => 'mysql',
 'session_ttl' => 1800,

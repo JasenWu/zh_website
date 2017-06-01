@@ -122,3 +122,4 @@
 <?php exit;?>05-29 16:36:17 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
 <?php exit;?>05-29 21:22:40 | 2 | chmod(): Operation not permitted | phpcms/libs/classes/attachment.class.php | 77
 <?php exit;?>05-29 21:22:43 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364
+<?php exit;?>06-01 07:50:14 | 2 | extract() expects parameter 1 to be array, null given | phpcms/modules/content/classes/html.class.php | 182
