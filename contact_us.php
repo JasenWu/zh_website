@@ -18,7 +18,7 @@ $SiteConfig = new Site;//实例化配置
     <div class="centerbox">
         <!---左边的内容---->
         <div class="leftside">
-            <div class="hmiand"><p>公司介绍<br/><span>Company Profile</span></p></div>
+            <div class="hmiand"><p>联系我们<br/><span>Company Profile</span></p></div>
             <ul class="listmenu">
                 <?php
                 $sql_left_nav = "SELECT * FROM `v9_category` WHERE `parentId` = 5";
@@ -62,21 +62,21 @@ $SiteConfig = new Site;//实例化配置
                 <br />
                 <br />
 
-                <div class="newsbo">
+                <div class="newsbo" id="root">
                     <!---01---->
                     <div class="sulting">您有什么问题？ 请填写以下信息，我们将尽快回复您，带"<span>*</span>"为必填项</div>
-                    <form id="form" name="form" method="post" action="/default.ashx?xmls=lib/post.xmls&amp;method=message" onsubmit="return check(this)">
+                    <form id="form" name="form"  method="post"  onsubmit="return false">
                         <ul class="sultilist">
-                            <li><p><span>*</span>姓名</p><input type="text" name="UserName" class="txtsu"><div class="zisult">请输入联系人的姓名</div></li>
-                            <li><p><span>*</span>电话</p><input type="text" name="Mobile" class="txtsu"><div class="zisult">请输入手机/座机号</div></li>
-                            <li><p><span>*</span> 邮箱</p><input type="text" name="Email" class="txtsu"><div class="zisult">请输入常用邮箱，以便及时回复您</div></li>
-                            <li><p><span></span>  QQ</p><input type="text" name="QQ" class="txtsu"><div class="zisult"></div></li>
-                            <li><p><span>*</span>  产品</p><input type="text" name="Address" class="txtsu"><div class="zisult">请选择您要咨询的产品类型</div></li>
-                            <li><p><span>*</span>  标题</p><input type="text" name="Title" class="txtsu"><div class="zisult">请选输入您要咨询的问题</div></li>
-                            <li style="margin-bottom:0;"><p><span></span>  内容</p><textarea name="Content" cols="" rows="" class="tatsu"></textarea></li>
+                            <li><p><span>*</span>姓名</p><input type="text" name="username" v-model="form.username"  class="txtsu"><div class="zisult">请输入联系人的姓名</div></li>
+                            <li><p><span>*</span>电话</p><input type="text" name="mobile" v-model="form.mobile"  class="txtsu"><div class="zisult">请输入手机/座机号</div></li>
+                            <li><p><span>*</span> 邮箱</p><input type="text" name="email" v-model="form.email"  class="txtsu"><div class="zisult">请输入常用邮箱，以便及时回复您</div></li>
+                            <li><p><span></span>  QQ</p><input type="text" name="qq" v-model="form.qq"  class="txtsu"><div class="zisult"></div></li>
+                            <li><p><span>*</span>  产品</p><input type="text" name="products" v-model="form.products"  class="txtsu"><div class="zisult">请选择您要咨询的产品类型</div></li>
+                            <li><p><span>*</span>  标题</p><input type="text" name="title" v-model="form.title"  class="txtsu"><div class="zisult">请选输入您要咨询的问题</div></li>
+                            <li style="margin-bottom:0;"><p><span></span>  内容</p><textarea v-model="form.content"  name="content" cols="" rows="" class="tatsu"></textarea></li>
                             <li><p><span></span> &nbsp;</p><div class="shaxi"><!--0/180字--></div></li>
                             <li><p><span></span> &nbsp;</p>
-                                <input type="submit" class="btn3" value="提交">
+                                <input type="submit" v-on:click="checkForm" class="btn3" value="提交">
                                 <input type="reset" class="btn4" value="重置">
                             </li>
                         </ul>
@@ -88,6 +88,55 @@ $SiteConfig = new Site;//实例化配置
     </div>
 </div>
 <!--middle-end-->
+
+<script>
+
+    var app = new Vue({
+        el: '#root',
+        data: {
+            form: {
+
+                username:"",
+                mobile:"",
+                email:"",
+                qq:"",
+                products:"",
+                title:"",
+                content:""
+            }
+        },
+        methods:{
+
+            checkForm:function () {
+
+                if(this.form.username.length <=0 || this.form.mobile.length <=0 || this.form.email.length <=0 || this.form.products.length <=0 ||  this.form.title.length <=0){
+                    alert("请完善表单信息!");
+                    return;
+                }
+                console.log("this.form",axios);
+                var __self = this;
+
+                axios.post("./commit_message.php",this.form).then(function (response) {
+                    console.log("response",response);
+                    alert(response.data);
+                    __self.form = {
+
+                            username:"",
+                            mobile:"",
+                            email:"",
+                            qq:"",
+                            products:"",
+                            title:"",
+                            content:""
+                    }
+                }).catch(function (error) {
+                    console.log("error",error);
+                })
+
+            }
+        }
+    })
+</script>
 
 
 <?php

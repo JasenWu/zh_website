@@ -17,6 +17,10 @@
     <script src="js/jquery.superslide.2.1.1.js"></script>
     <script src="js/jcarousellite.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
 </head>
 <body>
 <div class="wrap">
@@ -294,18 +298,47 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="/sense.html">仪器常识</a></li>
-
-                <li><a href="/recruiting.html">招贤纳士</a>
+                <li><a href="./knowledge.php?catid=53">仪器常识</a>
                     <ul class="showvox">
-                        <li><a href="/recruiting.html">人才理念</a></li>
-                        <li><a href="/recruiting1_cid_3.html">招聘职位 </a></li>
+
+
+                        <?php
+                        $sql_left_nav = "SELECT * FROM `v9_category` WHERE `parentId` = 52";
+                        $result_left_nav = mysqli_query($con, $sql_left_nav);
+
+                        while ($row = mysqli_fetch_array($result_left_nav)) {
+                            echo "<li ><a href=\"./knowledge.php?catid=".$row['catid']."\">".$row['catname']."</a> </li>";
+                        }
+                        ?>
+                    </ul>
+
+                </li>
+
+                <li><a href="zhaoxian.php?catid=50">招贤纳士</a>
+                    <ul class="showvox">
+
+                        <?php
+                        $sql_left_nav = "SELECT * FROM `v9_category` WHERE `parentId` = 49";
+                        $result_left_nav = mysqli_query($con, $sql_left_nav);
+
+                        while ($row = mysqli_fetch_array($result_left_nav)) {
+                            echo "<li ><a href=\"zhaoxian.php?catid=".$row['catid']."\">".$row['catname']."</a> </li>";
+                        }
+                        ?>
                     </ul>
                 </li>
-                <li style="margin-right:0;"><a href="/zy/contact_us.php">联系我们</a>
+                <li style="margin-right:0;"><a href="./contact_us.php?catid=48">联系我们</a>
                     <ul class="showvox">
-                        <li><a href="/contact.html">联系我们</a></li>
-                        <li><a href="/consulting.html">产品咨询</a></li>
+
+
+                        <?php
+                        $sql_left_nav = "SELECT * FROM `v9_category` WHERE `parentId` = 5";
+                        $result_left_nav = mysqli_query($con, $sql_left_nav);
+
+                        while ($row = mysqli_fetch_array($result_left_nav)) {
+                            echo "<li ><a href=\"./contact_us.php?catid".$row['catid']."\">".$row['catname']."</a> </li>";
+                        }
+                        ?>
                     </ul>
                 </li>
             </ul>

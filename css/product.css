@@ -1081,3 +1081,7 @@
 	margin-left:18px;
 	float:left;
 	}
+
+.is-danger{
+	border: 1px solid red;
+}
