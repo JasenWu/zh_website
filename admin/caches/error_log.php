@@ -127,3 +127,41 @@
 <?php exit;?>06-04 18:42:41 | 2 | extract() expects parameter 1 to be array, null given | phpcms/modules/content/classes/html.class.php | 182
 <?php exit;?>06-04 18:57:23 | 2 | extract() expects parameter 1 to be array, null given | phpcms/modules/content/classes/html.class.php | 182
 <?php exit;?>06-04 19:00:31 | 2 | extract() expects parameter 1 to be array, null given | phpcms/modules/content/classes/html.class.php | 182
+<?php exit;?>06-04 21:38:11 | 2 | mysqli::mysqli(): (HY000/2002): Connection refused | phpcms/libs/classes/db_mysqli.class.php | 55
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:11 | 2 | mysqli::close(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 409
+<?php exit;?>06-04 21:38:11 | 2 | mysqli::mysqli(): (HY000/2002): Connection refused | phpcms/libs/classes/db_mysqli.class.php | 55
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:11 | 2 | mysqli::query(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 78
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::execute(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 78
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:11 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:14 | 2 | mysqli::mysqli(): (HY000/2002): Connection refused | phpcms/libs/classes/db_mysqli.class.php | 55
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:14 | 2 | mysqli::close(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 409
+<?php exit;?>06-04 21:38:14 | 2 | mysqli::mysqli(): (HY000/2002): Connection refused | phpcms/libs/classes/db_mysqli.class.php | 55
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:14 | 2 | mysqli::query(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 78
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::execute(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 78
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::errno(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 397
+<?php exit;?>06-04 21:38:14 | 2 | db_mysqli::error(): Couldn't fetch mysqli | phpcms/libs/classes/db_mysqli.class.php | 390
+<?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
+<?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
+<?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
+<?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160

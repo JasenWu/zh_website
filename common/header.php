@@ -342,7 +342,7 @@
                     </ul>
                 </li>
             </ul>
-            <form action="/product.html" method="get" id="form">
+            <form action="./products.php" method="POST" id="form">
                 <div class="soso">
                     <input name="key" type="text" class="sotxt"/>
                     <div class="soxx"><input type="submit" value=""

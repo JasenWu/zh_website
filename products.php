@@ -4,6 +4,19 @@ include 'common/header.php';
 include 'common/Site.php';
 $SiteConfig = new Site;//实例化配置
 
+if(isset($_POST["key"])){
+    $key = $_POST["key"];
+    $search_list_sql ="SELECT * FROM `v9_category` WHERE `parentid` = 12 AND `catname` LIKE  '".$key."'";
+
+    $search_list_result = mysqli_query($con,$search_list_sql);
+    //var_dump($search_list_result);
+//    while ($row = mysqli_fetch_array($search_list_result)) {
+//
+//        var_dump($row);
+//    }
+}
+
+
 ?>
 
 
