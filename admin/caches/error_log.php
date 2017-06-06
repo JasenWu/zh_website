@@ -165,3 +165,4 @@
 <?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
 <?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
 <?php exit;?>06-04 21:39:42 | 2 | chmod(): Operation not permitted | phpcms/modules/content/sitemodel.php | 160
+<?php exit;?>06-06 22:00:54 | 2 | chmod(): Operation not permitted | phpcms/modules/content/classes/html.class.php | 364

@@ -244,8 +244,16 @@ $result_about = mysqli_query($con, $sql_about);
                                     <?php
                                     $row = mysqli_fetch_array($result_about);
                                     $str = $row['content'];
-                                    //$str = "hellow world";
-                                    echo $str;
+
+                                    $length =200;
+                                    if(strlen($str)>$length){
+                                        echo (mb_substr($str,0,$length,"utf-8")."...");
+
+                                    }else{
+                                        echo (mb_substr($str,0,$length,"utf-8"));
+
+                                    }
+
 
                                     // 释放结果集
                                     mysqli_free_result($result_about);
