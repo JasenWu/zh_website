@@ -112,6 +112,7 @@ $SiteConfig = new Site;//实例化配置
     </div>
 </div>
 <!--middle-end-->
+        </div>
 
 
 <?php

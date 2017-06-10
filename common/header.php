@@ -25,7 +25,7 @@
 <body>
 <div class="wrap">
     <div class="QQbox ">
-        <li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxMDAyMF8yODMwNTdfNDAwOTIwMDgxNl8yXw
+        <li><a href="tencent://message/?uin=1243737218&Site=qq&Menu=yes
 "><img src="images/aa.jpg"/></a></li>
         <li><a href="#"><img src="images/aa2.jpg"/></a>
             <div class="jasdgv">
@@ -55,8 +55,10 @@
 
         <div class="logo"><a href="/index.html" style="float:left;"><img src="images/logo.png" width="573"
                                                                          height="42"/></a>
-            <a href="http://www.mitutoyo.com.cn/products/index.html#page=1" target="_blank"
-               style="float:right;"><img src="images/LOGO.jpg"/></a></div>
+<!--            <a href="http://www.mitutoyo.com.cn/products/index.html#page=1" target="_blank"-->
+<!--               style="float:right;"><img src="images/LOGO.jpg"/></a>-->
+
+        </div>
         <div class="nav">
             <ul class="navlist">
                 <?php
